@@ -25,7 +25,8 @@
 ## 要求
 
 - 设计函数：LISTNODEPTR creatSortList（）; 函数功能为：读入任意一串整数，以-1结束，创建有序链表并返回表头指针。
-- 设计插入结点的函数：void tNode（LISTNODEPTR * headPtr，int nu函数功能为：将参数num插入到链表中，要求调用查找到插入位置函数，然后插入。
+- 设计插入结点的函数：void insertNode（LISTNODEPTR * headPtr，int num）; 
+函数功能为：将参数num插入到链表中，要求调用查找到插入位置函数，然后插入。
 - 设计查找插入位置函数LISTNODEPTR findNode（LISTNODEPTR headPtr，int num）; 函数功能为，按照数值大小查找到插入位置，并返回该结点的指针
 - 设计输出链表的函数：void printList（LISTNODEPTR headPtr）; 函数功能是：输出该有序链表
 
