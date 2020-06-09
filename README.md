@@ -4,6 +4,9 @@
 
   - [实验目的](#实验目的)
   - [假设有链表的结点类型定义如下](#假设有链表的结点类型定义如下)
+  - [要求](#要求)
+  - [代码风格要求](#代码风格要求)
+  - [程序书写风格要求](#程序书写风格要求)
   
 ## 实验目的
 
@@ -11,10 +14,31 @@
 
 ## 假设有链表的结点类型定义如下
 
-  struct node 
-{
-	int data;
-	struct node *nextPtr;
-};
-typedef struct node LISTNODE;
-typedef LISTNODE *LISTNODEPTR;
+	struct node 
+	{
+		int data;
+		struct node *nextPtr;
+	};
+	typedef struct node LISTNODE;
+	typedef LISTNODE *LISTNODEPTR;
+
+## 要求
+
+- 设计函数：LISTNODEPTR creatSortList（）; 函数功能为：读入任意一串整数，以-1结束，创建有序链表并返回表头指针。
+- 设计插入结点的函数：void tNode（LISTNODEPTR * headPtr，int nu函数功能为：将参数num插入到链表中，要求调用查找到插入位置函数，然后插入。
+- 设计查找插入位置函数LISTNODEPTR findNode（LISTNODEPTR headPtr，int num）; 函数功能为，按照数值大小查找到插入位置，并返回该结点的指针
+- 设计输出链表的函数：void printList（LISTNODEPTR headPtr）; 函数功能是：输出该有序链表
+
+## 代码风格要求
+
+- 变量定义处对每个变量的用途（即用于保存什么数据）进行说明; 
+- 适当使用空行来分隔实现不同功能的代码段; 
+- 选择，循环语句要有缩进; 
+- 对代码段的功能要有注释;
+
+## 程序书写风格要求
+从程序缩进，空行使用，注释以及变量命名几个方面进行要求;
+- 变量命名要有含义，尽量做到见名知意。
+- 程序要有必要注释，说明程序代码的功能。
+- 使用空行，将不同功能的代码段进行分割，提高代码的可读性。
+- 使用程序缩进，提高代码的可读性。
