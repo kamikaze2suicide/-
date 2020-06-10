@@ -7,6 +7,9 @@
   - [要求](#要求)
   - [代码风格要求](#代码风格要求)
   - [程序书写风格要求](#程序书写风格要求)
+  - [开始](#开始)
+  - [开应用方式始](#应用方式)
+  - [作者](#作者)
   
 ## 实验目的
 
@@ -43,3 +46,135 @@
 - 程序要有必要注释，说明程序代码的功能。
 - 使用空行，将不同功能的代码段进行分割，提高代码的可读性。
 - 使用程序缩进，提高代码的可读性。
+
+## 开始
+
+- 链表的创建
+
+		LISTNODEPTR creatSortList() 
+		{
+			LISTNODEPTR newPtr=NULL, headPtr = NULL;
+			int num;
+
+			printf("请输入数据，以-1结束：\n");
+			scanf("%d",&num);
+			while(num!=-1)
+			{
+				newPtr=malloc(sizeof(LISTNODE));
+				newPtr->data=num;
+				headPtr=insertNode(headPtr,newPtr);  
+
+				scanf("%d",&num);
+			}
+			return headPtr;
+		}
+
+- 遍历
+
+		LISTNODEPTR findNode (LISTNODEPTR headPtr, int num)
+		{
+			int count=1;
+		    while(headPtr!=NULL)
+		    {
+			if(headPtr->data==num)
+			{	
+					printf("%d在链表中的位置是第%d位\n",num,count);	
+
+					return headPtr;
+				}
+				headPtr=headPtr->nextPtr;
+				count++;
+			}	
+
+				printf("值没有找到\n"); 
+				return NULL;
+		}
+		
+- 链表结点的插入
+
+		LISTNODEPTR insertNode(LISTNODEPTR headPtr,LISTNODEPTR newPtr) 
+		{
+			LISTNODEPTR previousPtr,lastPtr;
+
+			if(headPtr==NULL )
+			{      
+				headPtr=newPtr;  
+				newPtr->nextPtr=NULL;
+
+				return headPtr;
+			}
+			if(headPtr->data >= newPtr->data)  
+			{
+				newPtr->nextPtr=headPtr;   
+				headPtr=newPtr;
+
+				return headPtr;
+			}
+
+			lastPtr=previousPtr=headPtr;
+
+			while(lastPtr->nextPtr && lastPtr->data < newPtr->data)  
+			{
+				previousPtr=lastPtr;  
+				lastPtr=lastPtr->nextPtr;
+			}
+			if(lastPtr->data < newPtr->data) 
+			{
+				lastPtr->nextPtr=newPtr; 
+				newPtr->nextPtr=NULL;
+			}
+			else  
+			{
+				newPtr->nextPtr=lastPtr; 
+				previousPtr->nextPtr=newPtr;
+			}
+
+			return headPtr;
+		}
+- 输出列表
+
+		void printList(LISTNODEPTR headPtr)  
+		{
+			printf("链表上各结点的数据为：\n");
+			while(headPtr!=NULL)
+			{
+				printf("%d ",headPtr->data);
+				headPtr=headPtr->nextPtr;
+			}
+			printf("\n");
+		}
+- 主要
+
+		int main()
+		{
+			LISTNODEPTR headPtr;
+			int num;
+
+			headPtr=creatSortList();	
+			printList(headPtr);
+
+			LISTNODEPTR newPtr=malloc(sizeof(LISTNODE));
+			printf("请输入一个待插入的数\n");	
+			scanf("%d",&newPtr->data);
+			insertNode(headPtr,newPtr);
+			printList(headPtr);
+
+			printf("请输入一个数，查找插入位置\n");
+			scanf("%d",&num); 
+			findNode(headPtr,num);
+
+			return 0;
+		}
+注意: 就能输入正整数， 停的话输入: -1
+
+## 应用方式
+
+- 数据排序
+- 数据保存
+- 数据显示
+
+## 作者
+
+- 英文姓名: Daniil Perov
+- 中文姓名: 裴丹宁
+- 大学: 北京邮电大学
